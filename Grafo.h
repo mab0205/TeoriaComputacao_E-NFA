@@ -13,7 +13,6 @@ class Grafo { // estrutua Grafo com um int apontado para o primeiro int e uma st
     int z=0;
     int aux2=0;
 
-
    int arestasVertice=0;
    int k = 0;
    int verticesIniciais[100][100];

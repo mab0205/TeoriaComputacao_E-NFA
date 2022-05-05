@@ -4,40 +4,23 @@ using namespace std;
 
 #include "Grafo.h"
 
-Grafo::Grafo(int vertices)
-{
+Grafo::Grafo(int vertices){
     numVertices = vertices;
     matrizAdj.resize(numVertices);
-    for (int i = 0; i < numVertices; i++)
-    {
+    for (int i = 0; i < numVertices; i++) {
         matrizAdj[i].resize(numVertices);
-        for (int j = 0; j < numVertices; j++)
-        {
+        for (int j = 0; j < numVertices; j++)  {
             matrizAdj[i][j] = "";
         }
     }
 }
 
 // Função para criar uma aresta   VERTICE    NUMERO OU ARESTA
-void Grafo::adicionaAresta(int v, int v2, string aresta)
-{
+void Grafo::adicionaAresta(int v, int v2, string aresta){
     matrizAdj[v][v2] = aresta;
 }
 
-// Print  grafo, se envia como parametro o grafo
-void Grafo::imprimeGrafo()
-{
-    for (int i = 0; i < numVertices; i++)
-    {
-        cout << i << "->";
-        for (int j = 0; j < numVertices; j++)
-        {
-            cout << matrizAdj[i][j];
-        }
-        cout << endl;
-    }
-    cout << endl;
-}
+
 
 void Grafo::Busca(char letra, int totalPalavras){
     for (int i = 0; i < numVertices; i++){
@@ -103,17 +86,3 @@ void Grafo::BuscaDos(char letra, int totalPalavras, int &caso,int num, int ultim
         }}  
  }
     
-
-
-void Grafo::Imprimir(char letra)
-{
-    cout << "letra" << letra << endl;
-    for (int i = 0; i < numVertices; i++)
-    {
-        for (int j = 0; j < numVertices; j++)
-        {
-            if (matrizAdj[i][j].find(letra) != string::npos)
-                cout << i << "-->achei pos: " << j << endl;
-        }
-    }
-}
