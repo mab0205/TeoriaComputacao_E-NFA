@@ -79,7 +79,7 @@ int main(int argc, char const *argv[]){
         g.arestasVertice = 0;
         totalPalavras++;
     }
-g.imprimeGrafo();
+//g.imprimeGrafo();
 
     /*
     for (int i = 0; i < g.k; i++){

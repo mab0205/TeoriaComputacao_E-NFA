@@ -20,8 +20,6 @@ void Grafo::adicionaAresta(int v, int v2, string aresta){
     matrizAdj[v][v2] = aresta;
 }
 
-
-
 void Grafo::Busca(char letra, int totalPalavras){
     for (int i = 0; i < numVertices; i++){
         if (matrizAdj[k][i].find(letra) != string::npos) {
@@ -38,8 +36,11 @@ void Grafo::BuscaDos(char letra, int totalPalavras, int &caso,int num, int ultim
     int aux=0;
     int h = 0;
     for (int i = 0; i < numVertices; i++){
-        if (matrizAdj[k][i].find('&') != string::npos) {
-
+        // hay que corregir aquiiiiiiiiii
+        if ( matrizAdj[k][i].find('&') != string::npos and num==ultimaLetra ){
+            k=i;
+            i=numVertices;
+        } else if (matrizAdj[k][i].find('&') != string::npos) {
 
             for (; l < numVertices; l++) {
                 if (matrizAdj[k][l].find('&') != string::npos) {
@@ -83,6 +84,7 @@ void Grafo::BuscaDos(char letra, int totalPalavras, int &caso,int num, int ultim
        } else if (i+1 == numVertices and k == aux3 and matrizAdj[k][k].find(letra) == string::npos ){ //if chagou ate final de matrizAdj..and..k nao mudou ..and.. el vertice vai para ele mesmo  
             cout << "cago"<<k<<endl;
              caso = 0;
-        }}  
+        }
+    }  
  }
     
