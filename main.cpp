@@ -45,14 +45,14 @@ int main(int argc, char const *argv[]){
     int totalPalavras = 0;
     
     while (palavra.compare(str2) != 0){
-        g.l=0;
+        //g.l=0;
         g.aux2=0;
         g.k = 0;
         int caso = 1;
         cin >> palavra;
         if (palavra.compare(str2) != 0) {
             for (int i = 0; i < palavra.length(); i++) {
-                //cout<< endl << palavra[i] << ": LETRA"  ;
+                cout<< endl << palavra[i] << ": LETRA"<<endl  ;
                 //cout<<"tam"<<palavra.length()<<endl;
                  g.BuscaDos(palavra[i], totalPalavras , caso , i+1, palavra.length(), finais[0]);
                if (caso == 0){
