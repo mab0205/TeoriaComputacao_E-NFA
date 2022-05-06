@@ -24,10 +24,22 @@ void Grafo::BuscaDos(char letra, int totalPalavras, int &caso,int num, int ultim
     int aux3 = k;
     int aux=0;
     int h = 0;
-    
+   //cout<<"el num"<< num << estadoFinal<< endl;
     for (int i = 0; i < numVertices; i++){
-        if (matrizAdj[k][i].find('&') != string::npos) {
+        //cout<<k<<"badbunny" <<i << "el num"<< num << estadoFinal<< endl;
+        if ( matrizAdj[k][estadoFinal].find('&') != string::npos and num == ultimaLetra ){
+            cout<<"estadoFinal" <<endl;
+            verticesFinais[totalPalavras][arestasVertice] = estadoFinal;
+            verticesIniciais[totalPalavras][arestasVertice] = k;
+            arestasVertice++;
+            k=estadoFinal;
+            i=numVertices;
+
+        } else if (matrizAdj[k][i].find('&') != string::npos) {
+            cout<<"&"<<endl;
             int j = 0;
+
+
             for (l=0; l < numVertices; l++) {
                 if (matrizAdj[k][l].find('&') != string::npos) {
                     vertices[h] = l;
@@ -76,12 +88,13 @@ void Grafo::BuscaDos(char letra, int totalPalavras, int &caso,int num, int ultim
             arestasVertice++;
             k = i;
             caso = 1;
-            cout << "hola"<<k<<endl;
-            i = numVertices;
+           // cout << "hola"<<k<<endl;
+            //if(num!=estadoFinal) num++;// aumenta el nuemro de de estados visitados del main(i), nooo descomentar
+            i = numVertices; //si no quiero que se vaya a la proxima palabra hay que comentar 
             
          // si no encuentra la letra en los siguientes estados ligados
        } else if ((i+1 == numVertices) and  (aux3 == k) and (matrizAdj[k][k].find(letra) == string::npos) ){ //if chagou ate final de matrizAdj..and..k nao mudou ..and.. el vertice vai para ele mesmo  
-            cout<< "aux3: "<< aux3<<endl;
+            //cout<< "aux3: "<< aux3<<endl;
             cout << "cago"<<k<<endl;
              caso = 0;
             verticesFinais[totalPalavras][arestasVertice-1]=-1;
