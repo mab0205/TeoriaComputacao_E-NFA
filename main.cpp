@@ -52,7 +52,7 @@ int main(int argc, char const *argv[]){
         cin >> palavra;
         if (palavra.compare(str2) != 0) {
             for (int i = 0; i < palavra.length(); i++) {
-                cout<< endl << palavra[i] << ": LETRA"<<endl  ;
+               // cout<< endl << palavra[i] << ": LETRA"<<endl  ;
                 //cout<<"tam"<<palavra.length()<<endl;
                  g.BuscaDos(palavra[i], totalPalavras , caso , i+1, palavra.length(), finais[0]);
                if (caso == 0){
@@ -79,7 +79,7 @@ int main(int argc, char const *argv[]){
         g.arestasVertice = 0;
         totalPalavras++;
     }
-//g.imprimeGrafo();
+g.imprimeGrafo();
 
     /*
     for (int i = 0; i < g.k; i++){
