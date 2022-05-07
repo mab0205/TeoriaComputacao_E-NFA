@@ -41,6 +41,7 @@ void Grafo::BuscaDos(char letra, int totalPalavras, int &caso,int num, int ultim
        //cout<<k<<"badbunny" << "el num "<< num <<"EF: "<< estadoFinal<< " vertices H"<< vertices[h-1] <<endl;
         if ( matrizAdj[k][estadoFinal].find('&') != string::npos  and (num == ultimaLetra || vertices[h-1] == estadoFinal) ){ //or (vertices[h-1] == estadoFinal  and vertices[h-1] == estadoFinalsolo he cambiado aqui
            // cout<<"estadoFinal" <<endl;
+           sumLetras.push_back('&');//07/05
             verticesFinais[totalPalavras][arestasVertice] = estadoFinal;
             verticesIniciais[totalPalavras][arestasVertice] = k;
             arestasVertice++;
@@ -53,6 +54,10 @@ void Grafo::BuscaDos(char letra, int totalPalavras, int &caso,int num, int ultim
 
             for (l=0; l < numVertices; l++) {
                 if (matrizAdj[k][l].find('&') != string::npos) {
+                    sumLetras.push_back('&');//07/05
+                    verticesFinais[totalPalavras][arestasVertice] = l;
+                    verticesIniciais[totalPalavras][arestasVertice] = k;
+                    arestasVertice++;
                     vertices[h] = l;
                     h++;
                 }   
@@ -73,6 +78,7 @@ void Grafo::BuscaDos(char letra, int totalPalavras, int &caso,int num, int ultim
                    verticesFinais[totalPalavras][arestasVertice] = j;
                    verticesIniciais[totalPalavras][arestasVertice] = aux;
                    arestasVertice++;
+                   sumLetras.push_back(letra);//07/05
                     k=j;
                     
                     if(num == ultimaLetra){
@@ -92,7 +98,7 @@ void Grafo::BuscaDos(char letra, int totalPalavras, int &caso,int num, int ultim
                      //| 1 4 2 |--->ahora vamos usar aux = 2
                     aux2++;
                     aux=vertices[aux2];
-                    j=0;
+                    j=0;//07/05
                 }  
                // imprimeGrafo();
             }
@@ -108,6 +114,7 @@ void Grafo::BuscaDos(char letra, int totalPalavras, int &caso,int num, int ultim
             verticesFinais[totalPalavras][arestasVertice] = i;
             verticesIniciais[totalPalavras][arestasVertice] = k;
             arestasVertice++;
+            sumLetras.push_back(letra);//07/05
             k = i;
             caso = 1;
           // cout << "hola"<<k<<endl;

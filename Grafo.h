@@ -12,6 +12,7 @@ class Grafo { // estrutua Grafo com um int apontado para o primeiro int e uma st
     int l = 0;
     int z=0;
     int aux2=0;
+    vector<char>sumLetras; // variable que almacena las letras y espacios en blanco &
 
    int arestasVertice=0;
    int k = 0;

@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <algorithm> // usar sort de ordenacion 
 
 using namespace std;
 
@@ -45,11 +46,13 @@ int main(int argc, char const *argv[]){
     int totalPalavras = 0;
     
     while (palavra.compare(str2) != 0){
-        //g.l=0;
+       vector<char>::iterator it;//07/05
+
         g.aux2=0;
         g.k = 0;
         int caso = 1;
         cin >> palavra;
+        g.sumLetras.clear();//07/05
         if (palavra.compare(str2) != 0) {
             for (int i = 0; i < palavra.length(); i++) {
                // cout<< endl << palavra[i] << ": LETRA"<<endl  ;
@@ -65,12 +68,13 @@ int main(int argc, char const *argv[]){
                 if (g.verticesFinais[totalPalavras][g.arestasVertice - 1] == finais[i]) { // imprime si es aceptada la palabra
                     cout << palavra << ": sim" << endl;
                      //cout << caso << ": caso" << endl;
-                    for (int u = 0; u < g.arestasVertice; u++)
-                        cout << g.verticesIniciais[totalPalavras][u] << " -> " << palavra[u] << " -> " << g.verticesFinais[totalPalavras][u] << endl;
+                      it = g.sumLetras.begin();
+                    for (int u = 0;  it != g.sumLetras.end(); u++ , it++)
+                        cout << g.verticesIniciais[totalPalavras][u] << " -> " << *it << " -> " << g.verticesFinais[totalPalavras][u] << endl;//07/05
+                    //g.sumLetras.erase(it);//07/05
                     break;
                 }
-                else
-                    cout << palavra << ": nao" << endl;
+                else cout << palavra << ": nao" << endl;
             }
             cout << endl
                  << "........................................" << endl;
@@ -80,17 +84,6 @@ int main(int argc, char const *argv[]){
         totalPalavras++;
     }
 g.imprimeGrafo();
-
-    /*
-    for (int i = 0; i < g.k; i++){
-        cout<< g.verticesFinais[i]<<endl;
-    }*/
-
-    /* tamPalavras = i;
-     g.imprimeGrafo
-
-     g.Busca('a');
-     */
 
     return 0;
 }
