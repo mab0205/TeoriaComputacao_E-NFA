@@ -46,8 +46,8 @@ int main(int argc, char const *argv[]){
     int totalPalavras = 0;
     
     while (palavra.compare(str2) != 0){
-       vector<char>::iterator it;//07/05
-
+       vector<char>::iterator it;// foi usado o iterator it, para percorrer o vector que contem a sequencia de saida, e ele possa ser impresso do comeco ate o fim  
+        // se redefine(zera) o valor das variavel para as nuevas palavras 
         g.aux2=0;
         g.k = 0;
         int caso = 1;
@@ -76,14 +76,16 @@ int main(int argc, char const *argv[]){
                 }
                 else cout << palavra << ": nao" << endl;
             }
-            cout << endl
-                 << "........................................" << endl;
+            //cout << endl
+                 
         }
+        cout << endl;
+        // se redefine(zera) o valor das variavel para as nuevas palavras 
         for(int h; h<100; h++) g.vertices[h]=0;
         g.arestasVertice = 0;
         totalPalavras++;
     }
-g.imprimeGrafo();
+//g.imprimeGrafo();
 
     return 0;
 }
